@@ -1,7 +1,7 @@
 
 # BusMaster - Bus Schedule and Tracking App
 
-![App Logo](app-logo.png) <!-- You can add your app's logo here -->
+![App Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQInJnKASaUGtonXkym8EcDcpRy9uI0V88xgA&usqp=CAU) 
 
 **Welcome to the BusMaster GitHub repository!**
 
@@ -51,7 +51,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions or need further assistance, feel free to contact us at [olaoluwadaniel99@gmail.com].
+If you have any questions or need further assistance, feel free to contact us at olaoluwadaniel99@gmail.com.
 
 <!-- Additional contact or support information can be provided here -->
 
