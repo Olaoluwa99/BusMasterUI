@@ -29,7 +29,7 @@ import com.easit.busmaster.ui.theme.BusMasterTheme
 
 @Composable
 fun BusHomeScreen(
-    onSaveCompleted: () -> Unit = {}
+    onTripClicked: () -> Unit = {}
 ) {
 
     //Pseudo list
@@ -68,7 +68,9 @@ fun BusHomeScreen(
                 busName = fakeBusList[0].name,
                 tripTime = "09:00AM",
                 entryLocation = "1&2 DCP gate",
-                exitLocation = "Arolat, Ibese"
+                exitLocation = "Arolat, Ibese",
+                onTripClicked = onTripClicked
+
             )
         }
 
@@ -79,7 +81,8 @@ fun BusHomeScreen(
                 busName = fakeBusList[2].name,
                 tripTime = "07:00PM",
                 entryLocation = "3&4 DCP gate",
-                exitLocation = "New Garage, Ilaro"
+                exitLocation = "New Garage, Ilaro",
+                onTripClicked = onTripClicked
             )
         }
 
@@ -190,7 +193,8 @@ fun BusTicketType(
     busName: String,
     tripTime: String,
     entryLocation: String,
-    exitLocation: String
+    exitLocation: String,
+    onTripClicked: () -> Unit = {}
 ) {
     //
     Row(
@@ -199,7 +203,7 @@ fun BusTicketType(
             .wrapContentHeight()
             .clip(RoundedCornerShape(10.dp))
             .background(Color.LightGray)
-            .clickable { /*Shows scan code*/ }
+            .clickable { onTripClicked() }
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {

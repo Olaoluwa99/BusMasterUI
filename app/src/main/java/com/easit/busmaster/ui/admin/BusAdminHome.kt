@@ -58,7 +58,7 @@ fun BusAdminHomeScreen(
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(5.dp))
                 .background(Color.LightGray)
-                .clickable { /**/ }
+                .clickable { onSaveCompleted() }
                 .padding(16.dp)
         ) {
             //

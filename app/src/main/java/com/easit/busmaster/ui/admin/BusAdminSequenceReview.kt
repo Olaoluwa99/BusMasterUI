@@ -68,7 +68,7 @@ fun BusAdminSequenceReviewScreen(
     ){
         //
         item {
-            Text("!vv&2vAv", fontSize = 24.sp)
+            Text("1&2", fontSize = 24.sp)
         }
 
         //
@@ -102,12 +102,19 @@ fun BusAdminSequenceReviewScreen(
                     expanded = !expanded
                 }) {
                     fakeState.forEach {
-                        DropdownMenuItem(onClick = {
+                        /*DropdownMenuItem(onClick = {
                             selectedBus = it.name
                             expanded = !expanded
                         }) {
                             Text(text = it.name)
-                        }
+                        }*/
+                        DropdownMenuItem(
+                            text = { Text(text = it.name)},
+                            onClick = {
+                                selectedBus = it.name
+                                expanded = !expanded
+                            }
+                        )
                     }
                 }
             }
@@ -182,7 +189,7 @@ fun BusAdminSequenceReviewScreen(
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(5.dp))
                     .background(Color.LightGray)
-                    .clickable { /**/ }
+                    .clickable { onSaveCompleted() }
                     .padding(16.dp),
             ) {
                 Text(text = "Bus depart")

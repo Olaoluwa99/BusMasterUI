@@ -247,12 +247,13 @@ fun TripSchedule(
                         expandedFromLocationState(false)
                     }) {
                         locationList.forEach {
-                            DropdownMenuItem(onClick = {
-                                currentValueFromLocationState(it)
-                                expandedFromLocationState(false)
-                            }) {
-                                Text(text = it)
-                            }
+                            DropdownMenuItem(
+                                text = { Text(text = it)},
+                                onClick = {
+                                    currentValueFromLocationState(it)
+                                    expandedFromLocationState(false)
+                                }
+                            )
                         }
                     }
                 }
@@ -282,12 +283,21 @@ fun TripSchedule(
                         expandedToLocationState(false)
                     }) {
                         locationList.forEach {
-                            DropdownMenuItem(onClick = {
-                                currentValueToLocationState(it)
-                                expandedToLocationState(false)
-                            }) {
-                                Text(text = it)
-                            }
+                            DropdownMenuItem(
+                                text = { Text(text = it)},
+                                onClick = {
+                                    currentValueToLocationState(it)
+                                    expandedToLocationState(false)
+                                }
+                            )
+
+                            DropdownMenuItem(
+                                text = { Text(text = it)},
+                                onClick = {
+                                    currentValueToLocationState(it)
+                                    expandedToLocationState(false)
+                                }
+                            )
                         }
                     }
                 }
@@ -313,12 +323,20 @@ fun TripSchedule(
                     expandedTimeState(false)
                 }) {
                     timeList.forEach {
-                        DropdownMenuItem(onClick = {
+                        /*DropdownMenuItem(onClick = {
                             currentValueTimeState(it)
                             expandedTimeState(false)
                         }) {
                             Text(text = it)
-                        }
+                        }*/
+
+                        DropdownMenuItem(
+                            text = { Text(text = it)},
+                            onClick = {
+                                currentValueTimeState(it)
+                                expandedTimeState(false)
+                            }
+                        )
                     }
                 }
             }
