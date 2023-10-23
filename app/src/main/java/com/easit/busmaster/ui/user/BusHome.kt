@@ -51,10 +51,6 @@ fun BusHomeScreen(
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        //
-        item{
-            Text("BusHome", fontSize = 24.sp)
-        }
 
         //
         item{
@@ -209,7 +205,7 @@ fun BusTicketType(
     ) {
         Column(
             modifier = Modifier
-                .weight(7f),
+                .weight(6f),
             verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             Text(
@@ -228,7 +224,7 @@ fun BusTicketType(
 
         Column(
             modifier = Modifier
-                .weight(3f),
+                .weight(4f),
             verticalArrangement = Arrangement.SpaceAround
         ) {
             Text(

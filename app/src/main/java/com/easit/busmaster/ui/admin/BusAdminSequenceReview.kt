@@ -68,7 +68,7 @@ fun BusAdminSequenceReviewScreen(
     ){
         //
         item {
-            Text("1&2", fontSize = 24.sp)
+            Text("1&2", fontSize = 24.sp, fontWeight = FontWeight.Bold)
         }
 
         //

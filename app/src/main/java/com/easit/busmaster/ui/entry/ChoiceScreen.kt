@@ -117,7 +117,7 @@ fun ChoiceScreen(
                                 contentAlignment = Alignment.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(148.dp)
+                                    .height(100.dp)
                                     .clip(RoundedCornerShape(15.dp))
                                     .background(Color.Gray)
                                     .padding(16.dp),
@@ -160,7 +160,7 @@ fun ChoiceScreen(
                                 contentAlignment = Alignment.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(148.dp)
+                                    .height(100.dp)
                                     .clip(RoundedCornerShape(15.dp))
                                     .background(Color.Gray)
                                     .padding(16.dp),

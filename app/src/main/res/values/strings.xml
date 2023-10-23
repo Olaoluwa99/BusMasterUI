@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">BusMaster</string>
     <string name="setting_button">"Setting button "</string>
+    <string name="menu_button">"Menu button "</string>
     <string name="account_button">"Account button "</string>
     <string name="back_button">"Back button "</string>
 </resources>
