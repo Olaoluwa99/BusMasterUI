@@ -42,9 +42,6 @@ fun BusAdminSequenceDetailScreen(
     ){
         //
         item {
-            Text("BusAdminSequenceDetail", fontSize = 24.sp)
-        }
-        item {
             Box(
                 modifier = Modifier
                     .fillMaxWidth(),

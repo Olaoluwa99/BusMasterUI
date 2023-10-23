@@ -57,10 +57,6 @@ fun BusProfileScreen(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ){
         //
-        item{
-            Text("Bus Profile", fontSize = 24.sp)
-        }
-
         item {
             Text(
                 text = "Monday",

@@ -48,10 +48,6 @@ fun BusAdminHomeScreen(
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ){
         //
-        Text("BusAdminHome", fontSize = 24.sp)
-
-        //Cvolv
-
         Text(text = "6: 00AM", fontWeight = FontWeight.Bold)
         Column(
             modifier = Modifier
