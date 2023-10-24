@@ -1,5 +1,6 @@
 package com.easit.busmaster.ui.entry.login
 
+import android.widget.Toast
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,6 +15,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -23,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -48,6 +51,8 @@ fun LoginScreen(
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
+    val context = LocalContext.current
+
     //
     Column(
         Modifier
@@ -57,12 +62,7 @@ fun LoginScreen(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        Text(text = "$choiceId Login",
-            fontSize = 28.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier
-                .wrapContentWidth()
-        )
+        Spacer(modifier = Modifier.height(48.dp))
 
         Icon(
             Icons.Filled.LocationOn,
@@ -71,7 +71,7 @@ fun LoginScreen(
             modifier = Modifier
                 .height(75.dp).width(75.dp)
                 .clip(RoundedCornerShape(5.dp))
-                .background(Color.Gray)
+                .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                 .clickable {
                     //
                 }
@@ -90,6 +90,9 @@ fun LoginScreen(
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next
+            ),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f)
             )
         )
 
@@ -105,7 +108,10 @@ fun LoginScreen(
                 keyboardType = KeyboardType.Password,
                 imeAction = ImeAction.Go
             ),
-            visualTransformation = PasswordVisualTransformation()
+            visualTransformation = PasswordVisualTransformation(),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f)
+            )
         )
 
         Row(
@@ -137,13 +143,15 @@ fun LoginScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(25.dp))
-                .background(Color.Gray)
+                .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                 .clickable {
                     /* */
                     if (choiceId == "Admin"){
                         onAdminLoginClicked()
-                    }else{
+                    }else if (choiceId == "User"){
                         onUserLoginClicked()
+                    }else{
+                        Toast.makeText(context, "No value", Toast.LENGTH_SHORT).show()
                     }
                 }
                 .padding(16.dp),
@@ -172,7 +180,9 @@ fun LoginScreen(
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(5.dp))
                 .background(Color.Blue)
-                .clickable { onAdminLoginClicked() }
+                .clickable {
+                    //onAdminLoginClicked()
+                }
                 .padding(16.dp),
         ) {
             Text(text = "Facebook", color = Color.White)
@@ -187,7 +197,7 @@ fun LoginScreen(
                 .clickable { }
                 .padding(16.dp),
         ) {
-            Text(text = "Apple", color = Color.White)
+            Text(text = "Github", color = Color.White)
         }
     }
 }
