@@ -43,8 +43,8 @@ fun BusAdminSequenceReviewScreen(
     //Shows scanner for each bus-stop
     //Click checkmark once the bus goes
 
-    val expectedMembersCount by remember { mutableStateOf("00")}
-    val scannedMembersCount by remember { mutableStateOf("00")}
+    val expectedMembersCount by remember { mutableStateOf("48")}
+    val scannedMembersCount by remember { mutableStateOf("12")}
 
     //Pseudo list
     class PseudoList(
@@ -68,7 +68,12 @@ fun BusAdminSequenceReviewScreen(
     ){
         //
         item {
-            Text("1&2", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+            Spacer(modifier = Modifier.height(48.dp))
+        }
+
+        //
+        item {
+            Text("Location: 1&2 gate", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         }
 
         //
@@ -89,7 +94,7 @@ fun BusAdminSequenceReviewScreen(
                     modifier = Modifier
                         .wrapContentWidth()
                         .clip(RoundedCornerShape(5.dp))
-                        .background(Color.Gray)
+                        .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                         .padding(12.dp)
                         .clickable {
                             expanded = !expanded
@@ -188,7 +193,7 @@ fun BusAdminSequenceReviewScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(5.dp))
-                    .background(Color.LightGray)
+                    .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                     .clickable { onSaveCompleted() }
                     .padding(16.dp),
             ) {
@@ -198,7 +203,7 @@ fun BusAdminSequenceReviewScreen(
 
         item {
             Spacer(modifier = Modifier.height(24.dp))
-            Text(text = "Bus status", fontWeight = FontWeight.Bold)
+            Text(text = "Bus status", fontSize = 20.sp,fontWeight = FontWeight.Bold)
         }
 
         items(count = fakeState.size){
@@ -230,7 +235,7 @@ fun BusState(
             modifier = Modifier
                 .wrapContentWidth()
                 .clip(RoundedCornerShape(5.dp))
-                .background(Color.Gray)
+                .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                 .padding(12.dp)
         )
     }

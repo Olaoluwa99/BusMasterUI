@@ -14,6 +14,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -50,21 +51,17 @@ fun SignUpScreen(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        Text(text = "Signup",
-            fontSize = 28.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier
-                .wrapContentWidth()
-        )
+        Spacer(modifier = Modifier.height(48.dp))
 
         Icon(
             Icons.Filled.LocationOn,
             //tint = Color.White,
             "Location",
             modifier = Modifier
-                .height(75.dp).width(75.dp)
+                .height(75.dp)
+                .width(75.dp)
                 .clip(RoundedCornerShape(5.dp))
-                .background(Color.Gray)
+                .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                 .clickable {
                     //
                 }
@@ -83,6 +80,9 @@ fun SignUpScreen(
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
+            ),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f)
             )
         )
 
@@ -98,6 +98,9 @@ fun SignUpScreen(
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next
             ),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f)
+            )
         )
 
         OutlinedTextField(
@@ -112,7 +115,10 @@ fun SignUpScreen(
                 keyboardType = KeyboardType.Password,
                 imeAction = ImeAction.Go
             ),
-            visualTransformation = PasswordVisualTransformation()
+            visualTransformation = PasswordVisualTransformation(),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f)
+            )
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -122,7 +128,7 @@ fun SignUpScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(25.dp))
-                .background(Color.Gray)
+                .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                 .clickable { /* */ }
                 .padding(16.dp),
         ) {
@@ -164,7 +170,7 @@ fun SignUpScreen(
                 .clickable { }
                 .padding(16.dp),
         ) {
-            Text(text = "Apple", color = Color.White)
+            Text(text = "Github", color = Color.White)
         }
     }
 }

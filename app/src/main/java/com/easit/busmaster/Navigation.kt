@@ -21,21 +21,21 @@ import com.easit.busmaster.ui.user.BusHomeScreen
 import com.easit.busmaster.ui.user.BusProfileScreen
 
 sealed class Screen(val route: String) {
-    object SignUpScreen : Screen("sign_up")
-    object LoginScreen : Screen("login")
-    object ForgotPasswordScreen: Screen("forgot_password")
-    object ForgotPasswordConfirmationScreen: Screen("forgot_password_confirmation")
+    object SignUpScreen : Screen("Sign-up")
+    object LoginScreen : Screen("Login")
+    object ForgotPasswordScreen: Screen("Forgot password")
+    object ForgotPasswordConfirmationScreen: Screen("Forgot password confirmation")
 
-    object ChoiceScreen: Screen("choice_screen")
-
-    //
-    object BusAdminHomeScreen: Screen("bus_admin_home_screen")
-    object BusAdminSequenceDetailScreen: Screen("bus_admin_sequence_detail_screen")
-    object BusAdminSequenceReviewScreen: Screen("bus_admin_sequence_review_screen")
+    object ChoiceScreen: Screen("Choice screen")
 
     //
-    object BusHomeScreen: Screen("bus_home_screen")
-    object BusProfileScreen: Screen("bus_profile_screen")
+    object BusAdminHomeScreen: Screen("All trips")
+    object BusAdminSequenceDetailScreen: Screen("Bus detail")
+    object BusAdminSequenceReviewScreen: Screen("Sequence review")
+
+    //
+    object BusHomeScreen: Screen("My trips")
+    object BusProfileScreen: Screen("My profile")
 
     fun withArgs (vararg args: String): String {
         return buildString {
@@ -61,11 +61,11 @@ fun Navigation(
         startDestination = Screen.ChoiceScreen.route
     ) {
         composable(
-            route = Screen.LoginScreen.route + "/{id}",
+            route = Screen.LoginScreen.route + "/{choiceId}",
             arguments = listOf(
-                navArgument("id") {
+                navArgument("choiceId") {
                     type = NavType.StringType
-                    nullable = true
+                    nullable = false
                 }
             )
         ) { entry ->

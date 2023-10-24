@@ -7,8 +7,10 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
@@ -56,6 +58,11 @@ fun BusProfileScreen(
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ){
+        //
+        item {
+            Spacer(modifier = Modifier.height(48.dp))
+        }
+
         //
         item {
             Text(
@@ -230,7 +237,7 @@ fun TripSchedule(
                         modifier = Modifier
                             .wrapContentWidth()
                             .clip(RoundedCornerShape(5.dp))
-                            .background(Color.Gray)
+                            .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                             .padding(12.dp)
                             .clickable {
                                 expandedFromLocationState(!expandedFromLocation)
@@ -266,7 +273,7 @@ fun TripSchedule(
                         modifier = Modifier
                             .wrapContentWidth()
                             .clip(RoundedCornerShape(5.dp))
-                            .background(Color.Gray)
+                            .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                             .padding(12.dp)
                             .clickable {
                                 expandedToLocationState(!expandedToLocation)
@@ -306,7 +313,7 @@ fun TripSchedule(
                     modifier = Modifier
                         .wrapContentWidth()
                         .clip(RoundedCornerShape(5.dp))
-                        .background(Color.Gray)
+                        .background(Color(red = 0.91f, green = 0.48f, 0.09f, alpha = 1f))
                         .padding(12.dp)
                         .clickable {
                             expandedTimeState(!expandedTime)

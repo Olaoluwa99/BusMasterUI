@@ -1,5 +1,6 @@
 package com.easit.busmaster.ui.entry
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -24,11 +25,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.colorspace.ColorSpace
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.easit.busmaster.R
 import com.easit.busmaster.ui.theme.BusMasterTheme
 import com.easit.busmaster.ui.user.BusHomeScreen
 
@@ -48,15 +54,14 @@ fun ChoiceScreen(
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         //
-        Box(modifier =
-            Modifier
+        Image(
+            painterResource(id = R.drawable.bus1),
+            contentDescription = "Bus image",
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
                 .fillMaxWidth()
                 .height(380.dp)
-                .clip(RoundedCornerShape(5.dp))
-                .background(Color.LightGray)
-                .clickable { /**/ }
-                .padding(16.dp)
-            )
+        )//F44B04E
 
         Column(
             modifier = Modifier
@@ -72,17 +77,21 @@ fun ChoiceScreen(
                 verticalArrangement = Arrangement.spacedBy(24.dp)
             ) {
                 //
-                Text(
-                    text = "Select a mode",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
+                Box(
+                    contentAlignment = Alignment.Center,
                     modifier = Modifier
-                        //.wrapContentWidth()
-                        //.fillMaxWidth()
-                        .clip(RoundedCornerShape(5.dp))
-                        .background(Color.LightGray)
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                        .clip(RoundedCornerShape(15.dp))
+                        .background(color = Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                         .padding(start = 36.dp, end = 36.dp, top = 12.dp, bottom = 12.dp)
-                )
+                ) {
+                    Text(
+                        text = "Select a mode",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
 
                 //
                 Row(
@@ -95,7 +104,6 @@ fun ChoiceScreen(
                             .weight(1f)
                             .wrapContentHeight()
                             .clip(RoundedCornerShape(15.dp))
-                            .background(Color.Green)
                             .clickable {
                                 //
                                 onChoiceClicked(userText)
@@ -107,25 +115,32 @@ fun ChoiceScreen(
                             modifier = Modifier
                                 .wrapContentHeight()
                                 .clip(RoundedCornerShape(15.dp))
-                                .background(Color.LightGray)
+                                .background(brush = Brush.horizontalGradient(
+                                    colors = listOf(
+                                        Color(red = 0.91f, green = 0.48f, 0.09f, alpha = 1f),
+                                        Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f)
+                                    )
+                                ))
+                                //.background(color = Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                                 .clickable {
                                     onChoiceClicked(userText)
                                 }
                                 .padding(16.dp),
                         ) {
-                            Box(
-                                contentAlignment = Alignment.Center,
+                            Image(
+                                painterResource(id = R.drawable.baseline_account_circle_24),
+                                contentDescription = "User",
+                                contentScale = ContentScale.Fit,
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(100.dp)
-                                    .clip(RoundedCornerShape(15.dp))
-                                    .background(Color.Gray)
-                                    .padding(16.dp),
-                            ) {
-                                //
-                            }
+                            )
                             Spacer(modifier = Modifier.height(12.dp))
-                            Text(text = userText)
+                            Text(
+                                text = userText,
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
+                            )
                         }
                     }
 
@@ -138,7 +153,6 @@ fun ChoiceScreen(
                             .weight(1f)
                             .wrapContentHeight()
                             .clip(RoundedCornerShape(15.dp))
-                            .background(Color.Green)
                             .clickable {
                                 //
                                 onChoiceClicked(adminText)
@@ -150,25 +164,31 @@ fun ChoiceScreen(
                             modifier = Modifier
                                 .wrapContentHeight()
                                 .clip(RoundedCornerShape(15.dp))
-                                .background(Color.LightGray)
+                                .background(brush = Brush.horizontalGradient(
+                                    colors = listOf(
+                                        Color(red = 0.91f, green = 0.48f, 0.09f, alpha = 1f),
+                                        Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f)
+                                    )
+                                ))
                                 .clickable {
                                     onChoiceClicked(adminText)
                                 }
                                 .padding(16.dp),
                         ) {
-                            Box(
-                                contentAlignment = Alignment.Center,
+                            Image(
+                                painterResource(id = R.drawable.baseline_admin_panel_settings_24),
+                                contentDescription = "User",
+                                contentScale = ContentScale.Fit,
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(100.dp)
-                                    .clip(RoundedCornerShape(15.dp))
-                                    .background(Color.Gray)
-                                    .padding(16.dp),
-                            ) {
-                                //
-                            }
+                            )
                             Spacer(modifier = Modifier.height(12.dp))
-                            Text(text = adminText)
+                            Text(
+                                text = adminText,
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
+                            )
                         }
                     }
                 }

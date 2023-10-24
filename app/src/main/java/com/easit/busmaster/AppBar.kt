@@ -3,11 +3,12 @@ package com.easit.busmaster
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -22,7 +23,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import java.nio.file.WatchEvent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -35,54 +35,78 @@ fun PageAppBar(
     modifier: Modifier = Modifier
 ) {
     when (navController.currentDestination?.route) {
-        Screen.SignUpScreen.route, Screen.LoginScreen.route, Screen.ForgotPasswordScreen.route, Screen.ForgotPasswordConfirmationScreen.route -> {
+        Screen.ChoiceScreen.route -> {
             //No topBar
         }
 
-        Screen.BusHomeScreen.route, Screen.BusAdminHomeScreen.route -> {
-            TopAppBar(
-                //contentPadding = PaddingValues(10.dp),
-                //elevation = 60.dp,
+        Screen.BusHomeScreen.route,
+        Screen.BusAdminHomeScreen.route -> {
+            TopAppBar (
                 title = {
-                    Column (
-                        modifier = Modifier
-                            .padding(16.dp)
-                    ){
-                        Row (
-                            modifier = Modifier.fillMaxWidth(),
+                    Column(
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(
+                            modifier =
+                                Modifier
+                                    .fillMaxWidth()
+                                    .padding(top = 16.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Text(
-                                text = currentScreen.route,
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Bold,
-                                modifier = Modifier.wrapContentWidth())
+                            //
+                            Row(
+                                modifier = Modifier
+                                    .wrapContentHeight(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.LocationOn,
+                                    contentDescription = stringResource(R.string.back_button)
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                                Text(
+                                    text = currentScreen.route,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    fontSize = 24.sp
+                                )
+                            }
 
-                            Icon(
-                                imageVector = Icons.Filled.Menu,
-                                contentDescription = stringResource(R.string.menu_button)
-                            )
+                            //
+                            Row(
+                                modifier = Modifier
+                                    .wrapContentHeight(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.MoreVert,
+                                    contentDescription = stringResource(R.string.menu_button)
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                            }
                         }
 
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                        Box (
+                        //
+                        Box(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(2.dp)
-                                .background(Color.Black)
-                        )
-                    }
-
-                },
-                modifier = modifier,
-                navigationIcon = {
-                    if (canNavigateBack) {
-                        IconButton(onClick = navigateUp) {
-                            Icon(
-                                imageVector = Icons.Filled.Home,
-                                contentDescription = stringResource(R.string.back_button)
+                                .padding(start = 0.dp, end = 16.dp, top = 0.dp, bottom = 0.dp)
+                        ){
+                            //
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(2.dp)
+                                    .background(
+                                        Color(
+                                            red = 0.96f,
+                                            green = 0.69f,
+                                            0.31f,
+                                            alpha = 1f
+                                        )
+                                    )
                             )
                         }
                     }
@@ -90,68 +114,155 @@ fun PageAppBar(
             )
         }
 
-        Screen.BusProfileScreen.route, Screen.BusAdminSequenceDetailScreen.route, Screen.BusAdminSequenceReviewScreen.route -> {
+        Screen.BusProfileScreen.route,
+        Screen.BusAdminSequenceDetailScreen.route,
+        Screen.BusAdminSequenceReviewScreen.route-> {
             TopAppBar(
                 title = {
-                    Column (
-                        modifier = Modifier
-                            .padding(16.dp)
-                    ){
-                        Row (
-                            modifier = Modifier.fillMaxWidth(),
+                    Column(
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+
+                        Row(
+                            modifier =
+                            Modifier
+                                .fillMaxWidth()
+                                .padding(top = 16.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Text(
-                                text = currentScreen.route,
-                                fontSize = 18.sp,
-                                fontWeight = FontWeight.Bold,
-                                modifier = Modifier.wrapContentWidth())
+                            //
+                            Row(
+                                modifier = Modifier
+                                    .wrapContentHeight(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.ArrowBack,
+                                    contentDescription = stringResource(R.string.back_button)
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                                Text(
+                                    text = currentScreen.route,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    fontSize = 24.sp
+                                )
+                            }
 
-                            Icon(
-                                imageVector = Icons.Filled.Menu,
-                                contentDescription = stringResource(R.string.menu_button)
-                            )
+                            //
+                            Row(
+                                modifier = Modifier
+                                    .wrapContentHeight(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.MoreVert,
+                                    contentDescription = stringResource(R.string.menu_button)
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                            }
                         }
 
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(16.dp))
 
-                        Box (
+                        //
+                        Box(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(2.dp)
-                                .background(Color.Black)
-                        )
-                    }
-                },
-                modifier = modifier,
-                navigationIcon = {
-                    if (canNavigateBack) {
-                        IconButton(onClick = navigateUp) {
-                            Icon(
-                                imageVector = Icons.Filled.ArrowBack,
-                                contentDescription = stringResource(R.string.back_button)
+                                .padding(start = 0.dp, end = 16.dp, top = 0.dp, bottom = 0.dp)
+                        ){
+                            //
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(2.dp)
+                                    .background(
+                                        Color(
+                                            red = 0.96f,
+                                            green = 0.69f,
+                                            0.31f,
+                                            alpha = 1f
+                                        )
+                                    )
                             )
                         }
                     }
                 }
             )
         }
-        else -> {
-            TopAppBar(
-                title = { Text(currentScreen.route) },
-                modifier = modifier,
-                navigationIcon = {
-                    if (canNavigateBack) {
-                        IconButton(onClick = navigateUp) {
-                            Icon(
-                                imageVector = Icons.Filled.ArrowBack,
-                                contentDescription = stringResource(R.string.back_button)
-                            )
-                        }
+
+        Screen.SignUpScreen.route,
+        Screen.LoginScreen.route,
+        Screen.ForgotPasswordScreen.route,
+        Screen.ForgotPasswordConfirmationScreen.route-> {
+            Column(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+
+                Row(
+                    modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    //
+                    Row(
+                        modifier = Modifier
+                            .wrapContentHeight(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.back_button)
+                        )
+                        Spacer(modifier = Modifier.width(16.dp))
+                        Text(
+                            text = currentScreen.route,
+                            fontWeight = FontWeight.ExtraBold,
+                            fontSize = 24.sp
+                        )
+                    }
+
+                    //
+                    Row(
+                        modifier = Modifier
+                            .wrapContentHeight(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.MoreVert,
+                            contentDescription = stringResource(R.string.menu_button)
+                        )
+                        Spacer(modifier = Modifier.width(16.dp))
                     }
                 }
-            )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                //
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 0.dp, end = 16.dp, top = 0.dp, bottom = 0.dp)
+                ){
+                    //
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(2.dp)
+                            .background(
+                                Color(
+                                    red = 0.96f,
+                                    green = 0.69f,
+                                    0.31f,
+                                    alpha = 1f
+                                )
+                            )
+                    )
+                }
+            }
         }
     }
 }

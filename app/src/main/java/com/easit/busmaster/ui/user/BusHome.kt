@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -51,12 +52,18 @@ fun BusHomeScreen(
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
+        //
+        item {
+            Spacer(modifier = Modifier.height(48.dp))
+        }
 
         //
         item{
-            Text("My Trip",fontWeight = FontWeight.Bold)
+            Spacer(modifier = Modifier.height(16.dp))
+            Text("24/06/2023", fontSize = 20.sp,fontWeight = FontWeight.Bold)
         }
 
+        //
         item {
             //
             Text(text = "Going trip")
@@ -82,32 +89,11 @@ fun BusHomeScreen(
             )
         }
 
-        item {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(Color.LightGray)
-                    .clickable { /**/ }
-                    .padding(16.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "No bus reservation available",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 20.sp
-                )
-            }
-        }
-
         item{
-            Text("Available buses",fontWeight = FontWeight.Bold)
+            Spacer(modifier = Modifier.height(16.dp))
+            Text("Available buses", fontSize = 20.sp,fontWeight = FontWeight.Bold)
         }
 
-//        items(count = fakeBusList.size){
-//            BusDetailList(fakeBusList[it].name, fakeBusList[it].number)
-//        }
 
         items(count = fakeBusList.size){
             BusDetailList2(
@@ -173,7 +159,7 @@ fun BusDetailList2(
             modifier = Modifier
                 .weight(1f)
                 .clip(RoundedCornerShape(5.dp))
-                .background(Color.Gray)
+                .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                 .clickable {
                     //
                 }
@@ -205,7 +191,7 @@ fun BusTicketType(
     ) {
         Column(
             modifier = Modifier
-                .weight(6f),
+                .weight(1f),
             verticalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             Text(
@@ -224,15 +210,15 @@ fun BusTicketType(
 
         Column(
             modifier = Modifier
-                .weight(4f),
+                .wrapContentWidth(),
             verticalArrangement = Arrangement.SpaceAround
         ) {
             Text(
                 text = tripTime,
                 modifier = Modifier
-                    .width(160.dp)
+                    .wrapContentWidth()
                     .clip(RoundedCornerShape(5.dp))
-                    .background(Color.Gray)
+                    .background(Color(red = 0.96f, green = 0.69f, 0.31f, alpha = 1f))
                     .padding(12.dp)
                 ,
                 fontWeight = FontWeight.Bold
@@ -242,7 +228,6 @@ fun BusTicketType(
                 text = "Cancel",
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .width(160.dp)
                     .clip(RoundedCornerShape(5.dp))
                     .background(Color.Red)
                     .clickable {
