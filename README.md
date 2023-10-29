@@ -1,5 +1,5 @@
 
-# BusMaster - Bus Schedule and Tracking App
+# BusMaster - Bus Schedule and Tracking App (UI) 
 
 ![App Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQInJnKASaUGtonXkym8EcDcpRy9uI0V88xgA&usqp=CAU) 
 
