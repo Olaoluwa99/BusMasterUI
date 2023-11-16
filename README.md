@@ -39,7 +39,7 @@ This Android app is designed to help users easily register for bus services, tra
 
 ## Screenshots
 
-<!-- You can include screenshots of the app to give users a visual preview -->
+![Screenshot_2023-11-16-21-09-12-97](https://github.com/Olaoluwa99/BusMaster/assets/85140182/9d7caa3f-0f27-470e-b58b-017b472948c2)
 
 ## Contributing
 
