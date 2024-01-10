@@ -1,10 +1,9 @@
-
 # BusMaster - Bus Schedule and Tracking App (UI-design) 
 
 ![Site 12](https://github.com/Olaoluwa99/BusMasterUI/assets/85140182/16675d92-dbf7-460c-ba0c-a251f7967688)
 
 
-**Welcome to the BusMaster GitHub repository!**
+### Welcome to the BusMaster GitHub repository!
 
 This Android app is designed to help users easily register for bus services, track bus movements, and provide administrators with tools to manage bus schedules. It offers a seamless experience for both passengers and bus operators.
 
